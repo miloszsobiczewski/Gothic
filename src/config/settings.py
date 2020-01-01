@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "jeep",
     "shooting",
     "plans",
+    "things",
 ]
 
 MIDDLEWARE = [
