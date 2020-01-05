@@ -2,7 +2,6 @@ from datetime import date
 
 from django.contrib import admin
 from django.utils.safestring import mark_safe
-from django.utils import timezone
 
 from .models import Thing
 
