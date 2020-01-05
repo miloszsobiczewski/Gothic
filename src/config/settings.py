@@ -11,21 +11,28 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+from typing import List
+import environ
+
+
+root = environ.Path(__file__) - 3
+env = environ.Env()
+env.read_env(env_file=root(".env"))
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+BASE_DIR = root()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "%zvgm9)#v1y2j)3h@87krlw9isz=s2x4!2)3^+wi(9wc*hefz8"
+SECRET_KEY: str = env("SECRET_KEY")
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG: bool = env.bool("DEBUG", default=False)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS: List[str] = env.list("ALLOWED_HOSTS", default=[])
 
 
 # Application definition
