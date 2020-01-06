@@ -2,7 +2,7 @@ from django.db import models
 
 
 SCORE = [(1, "very bad"), (2, "bad"), (3, "so so"), (4, "good"), (5, "very good")]
-STATUS = [("tod_do", "To do"), ("in_progress", "In progress"), ("done", "Done")]
+STATUS = [("todo", "To do"), ("in_progress", "In progress"), ("done", "Done")]
 
 
 class Plan(models.Model):
