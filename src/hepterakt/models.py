@@ -5,12 +5,12 @@ from django.db import models
 
 class TimeTracker(models.Model):
     uuid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    timestamp = models.DateTimeField(default=datetime.datetime.now())
+    timestamp = models.DateTimeField(auto_now_add=True)
     task = models.CharField(max_length=128)
     description = models.TextField()
     time_effort = models.DecimalField(max_digits=4, decimal_places=2)
     paid = models.BooleanField()
-    workday = models.DateField(auto_now_add=True)
+    workday = models.DateField(default=datetime.datetime.now())
 
 
 class TimeSummary(TimeTracker):
