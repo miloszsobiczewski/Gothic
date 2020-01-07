@@ -5,7 +5,7 @@ from django.db import models
 
 class TimeTracker(models.Model):
     uuid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    timestamp = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(default=datetime.datetime.now())
     task = models.CharField(max_length=128)
     description = models.TextField()
     time_effort = models.DecimalField(max_digits=4, decimal_places=2)
