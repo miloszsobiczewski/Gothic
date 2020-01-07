@@ -1,7 +1,7 @@
 *.pyc
 __pychache__
 .idea
-*db.sqlite3
+*.sqlite3
 .DS_Store
 .env
 media/

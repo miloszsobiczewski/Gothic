@@ -1,0 +1,54 @@
+{% extends "admin/change_list.html" %}
+{% block content_title %}
+    <h1> Time Tracker Summary </h1>
+{% endblock %}
+{% block result_list %}
+
+<div class="results">
+    <table>
+
+    <thead>
+      <tr>
+        <th>
+          <div class="text">
+            <a href="#">Category</a>
+          </div>
+        </th>
+        <th>
+          <div class="text">
+            <a href="#">Count</a>
+          </div>
+        </th>
+        <th>
+          <div class="text">
+            <a href="#">Total Time Effort</a>
+          </div>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in summary %}
+      <tr class="{% cycle 'row1' 'row2' %}">
+        <td> {{ row.task }} </td>
+        <td> {{ row.count }} </td>
+        <td> {{ row.total_time | default:0 }} h </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+
+  </table>
+
+    <div class=”results”>
+        <table>
+            <tr style="font-weight:bold; border-top:2px solid #DDDDDD;">
+                <td> Total </td>
+                <td> {{ summary_total.count | default:0 }} </td>
+                <td> {{ summary_total.total_time | default:0 }} h </td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+{% endblock %}
+{% block pagination %}{% endblock %}

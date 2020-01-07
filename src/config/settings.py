@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "todos",
     "hobby",
     "things",
+    "hepterakt",
 ]
 
 MIDDLEWARE = [
