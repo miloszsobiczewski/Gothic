@@ -52,11 +52,12 @@ class SadAdmin(admin.ModelAdmin):
     model = Work
     list_display = [
         "company",
+        "contact_ind",
         "position",
         "money",
         "link",
-        "where",
         "application_date",
+        "contact_date",
         "status",
         "applied_ind",
     ]

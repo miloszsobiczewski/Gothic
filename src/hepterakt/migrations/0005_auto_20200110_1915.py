@@ -7,29 +7,33 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('hepterakt', '0004_auto_20200110_1839'),
+        ("hepterakt", "0004_auto_20200110_1839"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='work',
-            name='cv_version',
+            model_name="work",
+            name="cv_version",
             field=models.CharField(blank=True, max_length=16, null=True),
         ),
         migrations.AddField(
-            model_name='work',
-            name='position',
-            field=models.CharField(default='Data Engineer', max_length=128),
+            model_name="work",
+            name="position",
+            field=models.CharField(default="Data Engineer", max_length=128),
             preserve_default=False,
         ),
         migrations.AlterField(
-            model_name='timetracker',
-            name='workday',
-            field=models.DateField(default=datetime.datetime(2020, 1, 10, 19, 14, 28, 828512)),
+            model_name="timetracker",
+            name="workday",
+            field=models.DateField(
+                default=datetime.datetime(2020, 1, 10, 19, 14, 28, 828512)
+            ),
         ),
         migrations.AlterField(
-            model_name='work',
-            name='application_date',
-            field=models.DateField(default=datetime.datetime(2020, 1, 10, 19, 14, 28, 829592)),
+            model_name="work",
+            name="application_date",
+            field=models.DateField(
+                default=datetime.datetime(2020, 1, 10, 19, 14, 28, 829592)
+            ),
         ),
     ]

@@ -32,3 +32,4 @@ class Work(models.Model):
     note = models.TextField(blank=True, null=True)
     applied_ind = models.BooleanField(default=True)
     cv_version = models.CharField(max_length=16, blank=True, null=True)
+    contact_ind = models.BooleanField(default=False)
