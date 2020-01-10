@@ -21,6 +21,7 @@ class TimeSummary(TimeTracker):
 
 
 class Work(models.Model):
+    position = models.CharField(max_length=128)
     company = models.CharField(max_length=128)
     money = models.CharField(max_length=64, blank=True, null=True)
     url = models.URLField()
@@ -30,3 +31,4 @@ class Work(models.Model):
     status = models.CharField(max_length=16, default="applied")
     note = models.TextField(blank=True, null=True)
     applied_ind = models.BooleanField(default=True)
+    cv_version = models.CharField(max_length=16, blank=True, null=True)
