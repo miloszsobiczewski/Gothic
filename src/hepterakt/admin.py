@@ -1,8 +1,10 @@
 from django.contrib import admin
 from django.db.models import Count, Sum, Min, Max, DateTimeField
 from django.db.models.functions import Trunc
+from django.utils.html import format_html
+from django.utils.safestring import mark_safe
 
-from .models import TimeTracker, TimeSummary
+from .models import TimeTracker, TimeSummary, Work
 
 
 def make_paid(modeladmin, request, queryset):
@@ -43,3 +45,22 @@ class SaleSummaryAdmin(admin.ModelAdmin):
         )
         response.context_data["summary_total"] = dict(qs.aggregate(**metrics))
         return response
+
+
+@admin.register(Work)
+class SadAdmin(admin.ModelAdmin):
+    model = Work
+    list_display = [
+        "company",
+        "money",
+        "link",
+        "where",
+        "application_date",
+        "status",
+        "applied_ind",
+    ]
+
+    def link(self, obj):
+        return mark_safe(f"<a href={obj.url}>{obj.url}</a>")
+
+    link.allow_tags = True

@@ -18,3 +18,15 @@ class TimeSummary(TimeTracker):
         proxy = True
         verbose_name = "Time Summary"
         verbose_name_plural = "Times Summary"
+
+
+class Work(models.Model):
+    company = models.CharField(max_length=128)
+    money = models.CharField(max_length=64, blank=True, null=True)
+    url = models.URLField()
+    where = models.CharField(max_length=32, blank=True, null=True)
+    application_date = models.DateField(default=datetime.datetime.now())
+    contact_date = models.DateField(blank=True, null=True)
+    status = models.CharField(max_length=16, default="applied")
+    note = models.TextField(blank=True, null=True)
+    applied_ind = models.BooleanField(default=True)
