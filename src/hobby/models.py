@@ -4,6 +4,9 @@ from django.db import models
 
 
 class Jeep(models.Model):
+    class Meta:
+        verbose_name_plural = "Jeep"
+
     miledge = models.PositiveIntegerField()
     task = models.CharField(max_length=128)
     date = models.DateField(default=datetime.datetime.today())
@@ -18,6 +21,9 @@ class Jeep(models.Model):
 
 
 class Shooting(models.Model):
+    class Meta:
+        verbose_name_plural = "Shooting"
+
     CATEGORY = [
         ("pistol", "Pistolet"),
         ("rifle", "Karabin"),

@@ -4,6 +4,9 @@ from django.db import models
 
 
 class TimeTracker(models.Model):
+    class Meta:
+        verbose_name_plural = "Time Tracker"
+
     uuid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     timestamp = models.DateTimeField(auto_now_add=True)
     task = models.CharField(max_length=128)

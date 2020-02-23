@@ -27,7 +27,7 @@ class SadAdmin(admin.ModelAdmin):
 
 
 @admin.register(TimeSummary)
-class SaleSummaryAdmin(admin.ModelAdmin):
+class TimeSummaryAdmin(admin.ModelAdmin):
     change_list_template = "admin/time_summary_change_list.html"
     date_hierarchy = "workday"
     list_filter = ("task",)
