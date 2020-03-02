@@ -1,7 +1,7 @@
+import datetime
+
 from django.contrib import admin
-from django.db.models import Count, Sum, Min, Max, DateTimeField
-from django.db.models.functions import Trunc
-from django.utils.html import format_html
+from django.db.models import Count, Sum
 from django.utils.safestring import mark_safe
 
 from .models import TimeTracker, TimeSummary, Work
@@ -9,6 +9,11 @@ from .models import TimeTracker, TimeSummary, Work
 
 def make_paid(modeladmin, request, queryset):
     queryset.update(paid=True)
+
+
+def make_last_month_paid(modeladmin, request, queryset):
+    last_month = datetime.date.today().month - 1
+    TimeTracker.objects.filter(workday__month=last_month).update(paid=True)
 
 
 @admin.register(TimeTracker)
@@ -23,7 +28,7 @@ class SadAdmin(admin.ModelAdmin):
         "timestamp",
         "paid",
     ]
-    actions = [make_paid]
+    actions = [make_paid, make_last_month_paid]
 
 
 @admin.register(TimeSummary)

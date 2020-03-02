@@ -7,22 +7,25 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('hepterakt', '0007_auto_20200110_1939'),
+        ("hepterakt", "0007_auto_20200110_1939"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='timetracker',
-            options={'verbose_name_plural': 'Time Tracker'},
+            name="timetracker", options={"verbose_name_plural": "Time Tracker"},
         ),
         migrations.AlterField(
-            model_name='timetracker',
-            name='workday',
-            field=models.DateField(default=datetime.datetime(2020, 2, 23, 21, 31, 24, 909162)),
+            model_name="timetracker",
+            name="workday",
+            field=models.DateField(
+                default=datetime.datetime(2020, 2, 23, 21, 31, 24, 909162)
+            ),
         ),
         migrations.AlterField(
-            model_name='work',
-            name='application_date',
-            field=models.DateField(default=datetime.datetime(2020, 2, 23, 21, 31, 24, 910061)),
+            model_name="work",
+            name="application_date",
+            field=models.DateField(
+                default=datetime.datetime(2020, 2, 23, 21, 31, 24, 910061)
+            ),
         ),
     ]
