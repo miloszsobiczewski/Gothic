@@ -36,6 +36,7 @@ class FilmAdmin(admin.ModelAdmin):
     model = Film
     list_display = [
         "title",
+        "author",
         "score",
         "comment",
         "date_added",
@@ -60,6 +61,7 @@ class BookAdmin(admin.ModelAdmin):
     model = Book
     list_display = [
         "title",
+        "author",
         "score",
         "comment",
         "date_added",
