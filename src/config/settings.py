@@ -14,6 +14,8 @@ import os
 from typing import List
 import environ
 
+from django.conf.locale.en import formats as en_formats
+
 
 root = environ.Path(__file__) - 3
 env = environ.Env()
@@ -34,6 +36,9 @@ DEBUG: bool = env.bool("DEBUG", default=False)
 
 ALLOWED_HOSTS: List[str] = env.list("ALLOWED_HOSTS", default=[])
 
+DATE_FORMAT = "%d-%m-%Y"
+en_formats.DATE_FORMAT = "d-m-Y"
+en_formats.DATETIME_FORMAT = "d-m-Y H:i:s"
 
 # Application definition
 

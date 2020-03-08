@@ -28,6 +28,7 @@ class Shooting(models.Model):
         ("pistol", "Pistolet"),
         ("rifle", "Karabin"),
         ("gun", "Strzelba"),
+        ("docs", "Dokumenty"),
     ]
     category = models.CharField(choices=CATEGORY, max_length=16)
     year = models.PositiveIntegerField(default=2020)
@@ -37,3 +38,8 @@ class Shooting(models.Model):
     score = models.CharField(max_length=32, null=True, blank=True)
     confirmation = models.FileField(blank=True, null=True, upload_to="shooting/%Y")
     done = models.BooleanField(default=True)
+
+
+class Quote(models.Model):
+    text = models.TextField()
+    date = models.DateField(auto_now=True)

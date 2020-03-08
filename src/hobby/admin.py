@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.utils.html import format_html
 from django.urls import reverse
 
-from .models import Jeep, Shooting
+from .models import Jeep, Shooting, Quote
 
 
 @admin.register(Jeep)
@@ -45,3 +45,9 @@ class ShootingAdmin(admin.ModelAdmin):
             )
         else:
             return "No attachment"
+
+
+@admin.register(Quote)
+class QuoteAdmin(admin.ModelAdmin):
+    model = Quote
+    list_display = ("text", "date")

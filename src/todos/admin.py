@@ -16,6 +16,10 @@ class PlanAdmin(admin.ModelAdmin):
     ]
     search_fields = ["group", "task"]
 
+    def get_queryset(self, request):
+        qs = super(PlanAdmin, self).get_queryset(request)
+        return qs.order_by("-status")
+
     def status_button(self, obj):
         color = {
             "todo": "gray",
@@ -71,6 +75,10 @@ class BookAdmin(admin.ModelAdmin):
         "date_added",
         "status_button",
     ]
+
+    def get_queryset(self, request):
+        qs = super(BookAdmin, self).get_queryset(request)
+        return qs.order_by("-status")
 
     def status_button(self, obj):
         color = {

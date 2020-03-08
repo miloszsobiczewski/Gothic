@@ -7,18 +7,22 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('hobby', '0011_auto_20200307_1535'),
+        ("hobby", "0011_auto_20200307_1535"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='jeep',
-            name='date',
-            field=models.DateField(default=datetime.datetime(2020, 3, 7, 18, 0, 45, 80250)),
+            model_name="jeep",
+            name="date",
+            field=models.DateField(
+                default=datetime.datetime(2020, 3, 7, 18, 0, 45, 80250)
+            ),
         ),
         migrations.AlterField(
-            model_name='shooting',
-            name='date',
-            field=models.DateField(default=datetime.datetime(2020, 3, 7, 18, 0, 45, 81031)),
+            model_name="shooting",
+            name="date",
+            field=models.DateField(
+                default=datetime.datetime(2020, 3, 7, 18, 0, 45, 81031)
+            ),
         ),
     ]
