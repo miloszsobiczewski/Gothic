@@ -43,6 +43,10 @@ class FilmAdmin(admin.ModelAdmin):
         "status_button",
     ]
 
+    def get_queryset(self, request):
+        qs = super(FilmAdmin, self).get_queryset(request)
+        return qs.order_by("-status")
+
     def status_button(self, obj):
         color = {
             "todo": "gray",
