@@ -39,7 +39,14 @@ class Shooting(models.Model):
     confirmation = models.FileField(blank=True, null=True, upload_to="shooting/%Y")
     done = models.BooleanField(default=True)
 
+    def __str__(self):
+        return f"{self.year} [{self.category}] {self.competition}"
+
 
 class Quote(models.Model):
     text = models.TextField()
     date = models.DateField(auto_now=True)
+    author = models.CharField(max_length=128, blank=True, default="")
+
+    def __str__(self):
+        return f"{self.author} - {self.text}"

@@ -21,9 +21,11 @@ class Plan(models.Model):
     task = models.CharField(max_length=256)
     comment = models.TextField(blank=True, null=True)
 
+    def __str__(self):
+        return f"[{self.group}] {self.task}"
 
-# todo : abstract this model
-class Film(models.Model):
+
+class Abstract(models.Model):
     title = models.CharField(max_length=128)
     author = models.CharField(max_length=128, null=True, blank=True)
     score = models.IntegerField(choices=SCORE, null=True, blank=True)
@@ -31,11 +33,17 @@ class Film(models.Model):
     status = models.CharField(max_length=16, choices=STATUS, default=todo)
     date_added = models.DateField(auto_now_add=True)
 
+    class Meta:
+        abstract = True
 
-class Book(models.Model):
-    title = models.CharField(max_length=128)
-    author = models.CharField(max_length=128, null=True, blank=True)
-    score = models.IntegerField(choices=SCORE, null=True, blank=True)
-    comment = models.TextField(blank=True, null=True)
-    status = models.CharField(max_length=16, choices=STATUS, default=todo)
-    date_added = models.DateField(auto_now_add=True)
+
+class Film(Abstract):
+
+    def __str__(self):
+        return f"{self.title}"
+
+
+class Book(Abstract):
+
+    def __str__(self):
+        return f"{self.title}"

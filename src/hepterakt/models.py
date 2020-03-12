@@ -15,6 +15,9 @@ class TimeTracker(models.Model):
     paid = models.BooleanField()
     workday = models.DateField(default=datetime.datetime.now())
 
+    def __str__(self):
+        return f"{self.workday} [{self.task}] {self.description}"
+
 
 class TimeSummary(TimeTracker):
     class Meta:
@@ -36,3 +39,6 @@ class Work(models.Model):
     applied_ind = models.BooleanField(default=True)
     cv_version = models.CharField(max_length=16, blank=True, null=True)
     contact_ind = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"{self.company} {self.position}"
