@@ -16,7 +16,7 @@ class TimeTracker(models.Model):
     workday = models.DateField(default=datetime.datetime.now())
 
     def __str__(self):
-        return f"{self.workday} [{self.task}] {self.description}"
+        return f"{self.workday} [{self.task}] {self.time_effort}"
 
 
 class TimeSummary(TimeTracker):
