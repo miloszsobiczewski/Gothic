@@ -14,6 +14,7 @@ class PlanAdmin(admin.ModelAdmin):
         "date",
         "comment",
         "checks",
+        "bought",
     ]
 
     def checks(self, obj):
