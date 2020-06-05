@@ -6,9 +6,7 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ("hepterakt", "0002_auto_20200107_1422"),
-    ]
+    dependencies = [("hepterakt", "0002_auto_20200107_1422")]
 
     operations = [
         migrations.AlterField(

@@ -6,19 +6,21 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('hobby', '0014_auto_20200312_1956'),
-    ]
+    dependencies = [("hobby", "0014_auto_20200312_1956")]
 
     operations = [
         migrations.AlterField(
-            model_name='jeep',
-            name='date',
-            field=models.DateField(default=datetime.datetime(2020, 4, 4, 20, 40, 4, 709769)),
+            model_name="jeep",
+            name="date",
+            field=models.DateField(
+                default=datetime.datetime(2020, 4, 4, 20, 40, 4, 709769)
+            ),
         ),
         migrations.AlterField(
-            model_name='shooting',
-            name='date',
-            field=models.DateField(default=datetime.datetime(2020, 4, 4, 20, 40, 4, 710419)),
+            model_name="shooting",
+            name="date",
+            field=models.DateField(
+                default=datetime.datetime(2020, 4, 4, 20, 40, 4, 710419)
+            ),
         ),
     ]

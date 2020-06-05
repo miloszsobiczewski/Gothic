@@ -6,16 +6,14 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ("hobby", "0009_auto_20200110_1939"),
-    ]
+    dependencies = [("hobby", "0009_auto_20200110_1939")]
 
     operations = [
         migrations.AlterModelOptions(
-            name="jeep", options={"verbose_name_plural": "Jeep"},
+            name="jeep", options={"verbose_name_plural": "Jeep"}
         ),
         migrations.AlterModelOptions(
-            name="shooting", options={"verbose_name_plural": "Shooting"},
+            name="shooting", options={"verbose_name_plural": "Shooting"}
         ),
         migrations.AlterField(
             model_name="jeep",

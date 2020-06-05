@@ -7,13 +7,7 @@ from .models import Plan, Film, Book
 @admin.register(Plan)
 class PlanAdmin(admin.ModelAdmin):
     model = Plan
-    list_display = [
-        "group",
-        "status_button",
-        "task",
-        "deadline",
-        "comment",
-    ]
+    list_display = ["group", "status_button", "task", "deadline", "comment"]
     search_fields = ["group", "task"]
 
     def get_queryset(self, request):
@@ -52,11 +46,7 @@ class FilmAdmin(admin.ModelAdmin):
         return qs.order_by("-status")
 
     def status_button(self, obj):
-        color = {
-            "todo": "gray",
-            "in_progress": "orange",
-            "done": "green",
-        }
+        color = {"todo": "gray", "in_progress": "orange", "done": "green"}
         html = '<button class="button" style="background-color:%s">%s</button>' % (
             color[obj.status],
             obj.status,
@@ -81,11 +71,7 @@ class BookAdmin(admin.ModelAdmin):
         return qs.order_by("-status")
 
     def status_button(self, obj):
-        color = {
-            "todo": "gray",
-            "in_progress": "orange",
-            "done": "green",
-        }
+        color = {"todo": "gray", "in_progress": "orange", "done": "green"}
         html = '<button class="button" style="background-color:%s">%s</button>' % (
             color[obj.status],
             obj.status,

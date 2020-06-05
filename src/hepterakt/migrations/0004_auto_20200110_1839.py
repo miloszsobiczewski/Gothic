@@ -6,9 +6,7 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ("hepterakt", "0003_auto_20200107_1444"),
-    ]
+    dependencies = [("hepterakt", "0003_auto_20200107_1444")]
 
     operations = [
         migrations.CreateModel(

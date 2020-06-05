@@ -38,12 +38,10 @@ class Abstract(models.Model):
 
 
 class Film(Abstract):
-
     def __str__(self):
         return f"{self.title}"
 
 
 class Book(Abstract):
-
     def __str__(self):
         return f"{self.title}"

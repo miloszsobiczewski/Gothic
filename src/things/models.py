@@ -10,3 +10,13 @@ class Thing(models.Model):
 
     def __str__(self):
         return f"{self.thing}"
+
+
+class Warranty(models.Model):
+    thing = models.CharField(max_length=128)
+    start_date = models.DateField()
+    end_date = models.DateField()
+    receipt = models.FileField()
+
+    def __str__(self):
+        return f"{self.thing}"

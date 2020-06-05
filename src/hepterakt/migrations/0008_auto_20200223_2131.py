@@ -6,13 +6,11 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ("hepterakt", "0007_auto_20200110_1939"),
-    ]
+    dependencies = [("hepterakt", "0007_auto_20200110_1939")]
 
     operations = [
         migrations.AlterModelOptions(
-            name="timetracker", options={"verbose_name_plural": "Time Tracker"},
+            name="timetracker", options={"verbose_name_plural": "Time Tracker"}
         ),
         migrations.AlterField(
             model_name="timetracker",

@@ -3,19 +3,13 @@ from datetime import date
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 
-from .models import Thing
+from .models import Thing, Warranty
 
 
 @admin.register(Thing)
 class PlanAdmin(admin.ModelAdmin):
     model = Thing
-    list_display = [
-        "thing",
-        "date",
-        "comment",
-        "checks",
-        "bought",
-    ]
+    list_display = ["thing", "date", "comment", "checks", "bought"]
 
     def checks(self, obj):
         if not obj.approved:
@@ -29,3 +23,9 @@ class PlanAdmin(admin.ModelAdmin):
         )
 
         return mark_safe(html)
+
+
+@admin.register(Warranty)
+class WarrantyAdmin(admin.ModelAdmin):
+    model = Warranty
+    list_display = ["thing", "start_date", "end_date", "receipt"]

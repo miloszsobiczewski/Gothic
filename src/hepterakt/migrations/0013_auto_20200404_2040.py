@@ -6,19 +6,21 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('hepterakt', '0012_auto_20200312_1956'),
-    ]
+    dependencies = [("hepterakt", "0012_auto_20200312_1956")]
 
     operations = [
         migrations.AlterField(
-            model_name='timetracker',
-            name='workday',
-            field=models.DateField(default=datetime.datetime(2020, 4, 4, 20, 40, 4, 737304)),
+            model_name="timetracker",
+            name="workday",
+            field=models.DateField(
+                default=datetime.datetime(2020, 4, 4, 20, 40, 4, 737304)
+            ),
         ),
         migrations.AlterField(
-            model_name='work',
-            name='application_date',
-            field=models.DateField(default=datetime.datetime(2020, 4, 4, 20, 40, 4, 738233)),
+            model_name="work",
+            name="application_date",
+            field=models.DateField(
+                default=datetime.datetime(2020, 4, 4, 20, 40, 4, 738233)
+            ),
         ),
     ]
