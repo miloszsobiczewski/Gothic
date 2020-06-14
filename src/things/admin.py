@@ -35,7 +35,7 @@ class WarrantyAdmin(admin.ModelAdmin):
             mark_safe(
                 f"<button class='button' style='background-color:green'>True</button>"
             )
-            if obj.end_date < timezone.now().date()
+            if obj.end_date >= timezone.now().date()
             else mark_safe(
                 f"<button class='button' style='background-color:red'>False</button>"
             )
