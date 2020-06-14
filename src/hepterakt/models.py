@@ -1,6 +1,6 @@
-import datetime
 import uuid
 from django.db import models
+from django.utils import timezone
 
 
 class TimeTracker(models.Model):
@@ -13,7 +13,7 @@ class TimeTracker(models.Model):
     description = models.TextField()
     time_effort = models.DecimalField(max_digits=4, decimal_places=2)
     paid = models.BooleanField()
-    workday = models.DateField(default=datetime.datetime.now())
+    workday = models.DateField(default=timezone.now())
 
     def __str__(self):
         return f"{self.workday} [{self.task}] {self.time_effort}"
@@ -32,7 +32,7 @@ class Work(models.Model):
     money = models.CharField(max_length=64, blank=True, null=True)
     url = models.URLField()
     where = models.CharField(max_length=32, blank=True, null=True)
-    application_date = models.DateField(default=datetime.datetime.now())
+    application_date = models.DateField(default=timezone.now())
     contact_date = models.DateField(blank=True, null=True)
     status = models.CharField(max_length=16, default="applied")
     note = models.TextField(blank=True, null=True)

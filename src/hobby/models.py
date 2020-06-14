@@ -1,6 +1,5 @@
-import datetime
-
 from django.db import models
+from django.utils import timezone
 
 
 class Jeep(models.Model):
@@ -9,7 +8,7 @@ class Jeep(models.Model):
 
     miledge = models.PositiveIntegerField()
     task = models.CharField(max_length=128)
-    date = models.DateField(default=datetime.datetime.today())
+    date = models.DateField(default=timezone.now().date())
     mechanic = models.CharField(max_length=32, default="Miłosz")
     parts_price = models.DecimalField(max_digits=8, decimal_places=2, default=0)
     labor_price = models.DecimalField(max_digits=8, decimal_places=2, default=0)
@@ -32,7 +31,7 @@ class Shooting(models.Model):
     ]
     category = models.CharField(choices=CATEGORY, max_length=16)
     year = models.PositiveIntegerField(default=2020)
-    date = models.DateField(default=datetime.datetime.today())
+    date = models.DateField(default=timezone.now().date())
     place = models.CharField(max_length=128)
     competition = models.CharField(max_length=32)
     score = models.CharField(max_length=32, null=True, blank=True)
