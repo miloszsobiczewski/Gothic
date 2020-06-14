@@ -1,4 +1,4 @@
-from datetime import date
+from django.utils import timezone
 
 from django.contrib import admin
 from django.utils.safestring import mark_safe
@@ -13,7 +13,7 @@ class PlanAdmin(admin.ModelAdmin):
 
     def checks(self, obj):
         if not obj.approved:
-            if obj.date and obj.date < date.today():
+            if obj.date and obj.date < timezone.now().date():
                 obj.approved = True
                 obj.save(update_fields=["approved"])
         color = {True: "green", False: "red"}
@@ -28,4 +28,15 @@ class PlanAdmin(admin.ModelAdmin):
 @admin.register(Warranty)
 class WarrantyAdmin(admin.ModelAdmin):
     model = Warranty
-    list_display = ["thing", "start_date", "end_date", "receipt"]
+    list_display = ["thing", "start_date", "end_date", "receipt", "is_active"]
+
+    def is_active(self, obj):
+        return (
+            mark_safe(
+                f"<button class='button' style='background-color:green'>True</button>"
+            )
+            if obj.end_date < timezone.now().date()
+            else mark_safe(
+                f"<button class='button' style='background-color:red'>False</button>"
+            )
+        )
