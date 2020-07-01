@@ -50,4 +50,4 @@ class ShootingAdmin(admin.ModelAdmin):
 @admin.register(Quote)
 class QuoteAdmin(admin.ModelAdmin):
     model = Quote
-    list_display = ("text", "date")
+    list_display = ("text", "author", "note", "date")
