@@ -17,7 +17,7 @@ def make_last_month_paid(modeladmin, request, queryset):
 
 
 @admin.register(TimeTracker)
-class SadAdmin(admin.ModelAdmin):
+class TimeTrackerAdmin(admin.ModelAdmin):
     model = TimeTracker
     ordering = ["-timestamp"]
     list_display = [
@@ -53,7 +53,7 @@ class TimeSummaryAdmin(admin.ModelAdmin):
 
 
 @admin.register(Work)
-class SadAdmin(admin.ModelAdmin):
+class WorkAdmin(admin.ModelAdmin):
     model = Work
     list_display = [
         "company",

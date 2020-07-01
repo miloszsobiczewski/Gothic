@@ -1,6 +1,8 @@
 from django.contrib import admin
 from django.utils.html import format_html
 from django.urls import reverse
+from django.db.models import CharField
+from django.forms import TextInput
 
 from .models import Jeep, Shooting, Quote
 
@@ -49,5 +51,8 @@ class ShootingAdmin(admin.ModelAdmin):
 
 @admin.register(Quote)
 class QuoteAdmin(admin.ModelAdmin):
+    formfield_overrides = {
+        CharField: {"widget": TextInput(attrs={"size": "75"})},
+    }
     model = Quote
     list_display = ("text", "author", "note", "date")
