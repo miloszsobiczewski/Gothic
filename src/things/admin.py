@@ -7,9 +7,10 @@ from .models import Thing, Warranty
 
 
 @admin.register(Thing)
-class PlanAdmin(admin.ModelAdmin):
+class ThingAdmin(admin.ModelAdmin):
     model = Thing
     list_display = ["thing", "date", "comment", "checks", "bought"]
+    ordering = ("bought", "-date")
 
     def checks(self, obj):
         if not obj.approved:
